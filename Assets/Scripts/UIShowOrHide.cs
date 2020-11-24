@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class UIShowOrHide : MonoBehaviour, IPointerExitHandler, IPointerEnterHandler
+public class UIShowOrHide : MonoBehaviour
 {
     public Button btnExit;
     public Canvas canvas;
@@ -34,17 +34,5 @@ public class UIShowOrHide : MonoBehaviour, IPointerExitHandler, IPointerEnterHan
                 btnExit.gameObject.SetActive(false);
             }
         }
-    }
-
-    public void OnPointerEnter(PointerEventData eventData)
-    {
-        print("进入UI");
-        //print(eventData.ToString());
-    }
-
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        print("离开UI");
-        //print(eventData.ToString());
     }
 }

@@ -80,7 +80,7 @@ public class WindowMod : MonoBehaviour
     }
     private void Start()
     {
-        Invoke("SwitchFullScreen", 0.5f);
+        Invoke("SwitchFullScreen", 0.1f);
     }
     private void SwitchFullScreen()
     {

@@ -10,7 +10,8 @@ public class NetworkManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(GetRequest("https://way.jd.com/jisuapi/weather?city=安顺&cityid=111&citycode=101260301&appkey=8fe3ef8df98a3348b3b46351acd5b674"));
+        //StartCoroutine(GetRequest("https://way.jd.com/jisuapi/weather?city=安顺&cityid=111&citycode=101260301&appkey=8fe3ef8df98a3348b3b46351acd5b674"));
+        StartCoroutine(GetRequest("http://192.168.1.7:8080/huadian/main"));
     }
 
     // Update is called once per frame
