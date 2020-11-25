@@ -386,7 +386,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 220358784}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c875c673e2555b0488b067752d49242d, type: 3}
   m_Name: 
@@ -755,7 +755,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 9999999.02 kwh
+  m_Text: 000000000.00
 --- !u!222 &912250844
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1189,7 +1189,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 99999999.02 kw
+  m_Text: 000000000.00
 --- !u!222 &1520706520
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1535,7 +1535,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 9999999.02 kwh
+  m_Text: 000000000.00
 --- !u!222 &1906036806
 CanvasRenderer:
   m_ObjectHideFlags: 0

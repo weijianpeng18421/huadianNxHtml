@@ -53,18 +53,18 @@ public class NetworkManager : MonoBehaviour
                 if ((string)data[i]["paraName"] == "WDGF.WDGF:NBQ01CE40001")
                 {
                     float temp = float.Parse(data[i]["value"].ToString());
-                    RealLoad.text = temp.ToString(format);
+                    RealLoad.text = temp.ToString(format) + " kw";
 
                 }
                 if ((string)data[i]["paraName"] == "WDGF.WDGF:NBQ01CE40002")
                 {
                     float temp = float.Parse(data[i]["value"].ToString());
-                    InternetPower.text = temp.ToString(format);
+                    InternetPower.text = temp.ToString(format) + " kwh";
                 }
                 if ((string)data[i]["paraName"] == "WDGF.WDGF:NBQ01CE40003")
                 {
                     float temp = float.Parse(data[i]["value"].ToString());
-                    DayPower.text = temp.ToString(format);
+                    DayPower.text = temp.ToString(format) + " kwh";
                 }
             }
         }
