@@ -15,11 +15,11 @@ public class NetworkManager : MonoBehaviour
     string format = "#0.00";
 
     //string api = "https://way.jd.com/he/freeweather?city=yinchuan&appkey=8fe3ef8df98a3348b3b46351acd5b674";
-    string api = "http://192.168.1.7:8080/huadian/main";
+    string api = "http://10.141.88.205:8080/huadian/main";
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("RepeateRequest", 0f, 5f);
+        InvokeRepeating("RepeateRequest", 0f, 3f);
     }
 
 
@@ -50,20 +50,21 @@ public class NetworkManager : MonoBehaviour
             //数据展示
             for (int i = 0; i < data.Count; i++)
             {
-                if ((string)data[i]["paraName"] == "WDGF.WDGF:NBQ01CE40001")
+                if ((string)data[i]["paraName"] == "WDGF.WDGF:NBQ12CE30001")
                 {
                     float temp = float.Parse(data[i]["value"].ToString());
                     RealLoad.text = temp.ToString(format) + " kw";
 
                 }
-                if ((string)data[i]["paraName"] == "WDGF.WDGF:NBQ01CE40002")
+                // if ((string)data[i]["paraName"] == "WDGF.WDGF:NBQ01CE40002")
+                // {0.0005
+                //     float temp = float.Parse(data[i]["value"].ToString());
+                //     InternetPower.text = temp.ToString(format) + " kwh";
+                // }
+                if ((string)data[i]["paraName"] == "WDGF.WDGF:NBQ12CE40003")
                 {
                     float temp = float.Parse(data[i]["value"].ToString());
-                    InternetPower.text = temp.ToString(format) + " kwh";
-                }
-                if ((string)data[i]["paraName"] == "WDGF.WDGF:NBQ01CE40003")
-                {
-                    float temp = float.Parse(data[i]["value"].ToString());
+                    InternetPower.text = (temp * 0.0005f).ToString(format) + " kwh";
                     DayPower.text = temp.ToString(format) + " kwh";
                 }
             }

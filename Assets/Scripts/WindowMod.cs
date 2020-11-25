@@ -32,8 +32,8 @@ public class WindowMod : MonoBehaviour
     //public WindowMod.zDepth ScreenDepth;
     private int windowLeft = 0;
     private int windowTop = 0;
-    private int windowWidth = 600;
-    private int windowHeight = 350;
+    private int windowWidth = 450;
+    private int windowHeight = 250;
     private Rect screenPosition;
     private IntPtr HWND_TOP = new IntPtr(0);
     private IntPtr HWND_TOPMOST = new IntPtr(-1);
