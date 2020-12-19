@@ -33,7 +33,7 @@ public class WindowMod : MonoBehaviour
     private int windowLeft = 0;
     private int windowTop = 0;
     private int windowWidth = 450;
-    private int windowHeight = 250;
+    private int windowHeight = 130;
     private Rect screenPosition;
     private IntPtr HWND_TOP = new IntPtr(0);
     private IntPtr HWND_TOPMOST = new IntPtr(-1);
@@ -70,8 +70,9 @@ public class WindowMod : MonoBehaviour
         //btnSmallScreen.onClick.AddListener(OnFullScreenClick);
         this.Xscreen = (int)WindowMod.GetSystemMetrics(0);
         this.Yscreen = (int)WindowMod.GetSystemMetrics(1);
-        Screen.SetResolution(this.windowWidth, this.windowWidth, false);
-        this.screenPosition = new Rect((this.Xscreen - (float)this.windowWidth), (this.Yscreen - (float)this.windowHeight), (float)this.windowWidth, (float)this.windowHeight);
+        // Screen.SetResolution(this.windowWidth, this.windowWidth, false);
+        // this.screenPosition = new Rect((this.Xscreen - (float)this.windowWidth), (this.Yscreen - (float)this.windowHeight), (float)this.windowWidth, (float)this.windowHeight);
+        this.screenPosition = new Rect(0, this.Yscreen-(float)this.windowHeight, this.Xscreen, (float)this.windowHeight);
 
     }
     private void FixedUpdate()
