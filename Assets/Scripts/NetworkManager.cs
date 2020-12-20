@@ -19,7 +19,7 @@ public class NetworkManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("RepeateRequest", 0f, 3f);
+        InvokeRepeating("RepeateRequest", 0f, 5f);
     }
 
 
@@ -36,7 +36,7 @@ public class NetworkManager : MonoBehaviour
 
         if (uwr.isNetworkError)
         {
-            Messagebox.MessageBox(IntPtr.Zero, uwr.error, "网络请求错误", 0);
+            // Messagebox.MessageBox(IntPtr.Zero, uwr.error, "网络请求错误", 0);
         }
         else
         {
