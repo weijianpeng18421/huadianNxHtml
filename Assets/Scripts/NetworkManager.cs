@@ -57,19 +57,19 @@ public class NetworkManager : MonoBehaviour
                 if ((string)data[i]["paraName"] == "CALC.NXXNY_RFDL_WS")
                 {
                     float temp = float.Parse(data[i]["value"].ToString());
-                    DayPower.text = temp.ToString(format) + " kWh";
+                    DayPower.text = temp.ToString(format) + " 万kWh";
                 }
 
                 if ((string)data[i]["paraName"] == "CALC.NXXNY_YFDL_WS")
                 {
                     float temp = float.Parse(data[i]["value"].ToString());
-                    MonthPower.text = temp.ToString(format) + " kWh";
+                    MonthPower.text = temp.ToString(format) + " 万kWh";
                 }
 
                 if ((string)data[i]["paraName"] == "CALC.NXXNY_NFDL_WS")
                 {
                     float temp = float.Parse(data[i]["value"].ToString());
-                    YearPower.text = temp.ToString(format) + " kWh";
+                    YearPower.text = temp.ToString(format) + " 万kWh";
                 }
 
                 if ((string)data[i]["paraName"] == "CALC.NXXNY:SSZFH")
@@ -78,17 +78,11 @@ public class NetworkManager : MonoBehaviour
                     AllPower.text = temp.ToString(format) + " 万kW";
                 }
 
-                // if ((string)data[i]["paraName"] == "WDGF.WDGF:NBQ01CE40002")
-                // {0.0005
-                //     float temp = float.Parse(data[i]["value"].ToString());
-                //     InternetPower.text = temp.ToString(format) + " kwh";
-                // }
-
                 // if ((string)data[i]["paraName"] == "WDGF.WDGF:NBQ12CE40003")
                 // {
                 //     float temp = float.Parse(data[i]["value"].ToString());
                 //     DayPower.text = (temp * 0.0005f).ToString(format) + " kWh";
-                //     DayPower.text = temp.ToString(format) + " kWh";
+                //     MonthPower.text = temp.ToString(format) + " kWh";
                 // }
             }
         }
