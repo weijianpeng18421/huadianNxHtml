@@ -8,13 +8,14 @@ using System;
 
 public class NetworkManager : MonoBehaviour
 {
-    public Text RealLoad;//实施负荷
-    public Text InternetPower;//上网电量
-    public Text DayPower;//日发电量
+    public Text DayPower;//区域日发电量:
+    public Text MonthPower;//区域月发电量:
+    public Text YearPower;//区域年发电量:
+    public Text AllPower;//区域总负荷:
 
     string format = "#0.00";
 
-    //string api = "https://way.jd.com/he/freeweather?city=yinchuan&appkey=8fe3ef8df98a3348b3b46351acd5b674";
+    // string api = "https://way.jd.com/he/freeweather?city=yinchuan&appkey=8fe3ef8df98a3348b3b46351acd5b674";
     string api = "http://10.141.88.205:8080/huadian/main";
     // Start is called before the first frame update
     void Start()
@@ -34,6 +35,8 @@ public class NetworkManager : MonoBehaviour
         UnityWebRequest uwr = UnityWebRequest.Get(api);
         yield return uwr.SendWebRequest();
 
+        // Debug.Log("UnityWebRequest  : " + uwr);
+
         if (uwr.isNetworkError)
         {
             // Messagebox.MessageBox(IntPtr.Zero, uwr.error, "网络请求错误", 0);
@@ -41,38 +44,59 @@ public class NetworkManager : MonoBehaviour
         else
         {
             string result = uwr.downloadHandler.text;
-            Debug.Log("result  : " + result);
+
             //result = result.Replace("[", "");
 
             JsonData data = JsonMapper.ToObject(result);
 
+            Debug.Log("data  : " + data);
 
             //数据展示
             for (int i = 0; i < data.Count; i++)
             {
-                if ((string)data[i]["paraName"] == "WDGF.WDGF:NBQ12CE30001")
+                if ((string)data[i]["paraName"] == "CALC.NXXNY_RFDL_WS")
                 {
                     float temp = float.Parse(data[i]["value"].ToString());
-                    RealLoad.text = temp.ToString(format) + " kW";
-
+                    DayPower.text = temp.ToString(format) + " kWh";
                 }
+
+                if ((string)data[i]["paraName"] == "CALC.NXXNY_YFDL_WS")
+                {
+                    float temp = float.Parse(data[i]["value"].ToString());
+                    MonthPower.text = temp.ToString(format) + " kWh";
+                }
+
+                if ((string)data[i]["paraName"] == "CALC.NXXNY_NFDL_WS")
+                {
+                    float temp = float.Parse(data[i]["value"].ToString());
+                    YearPower.text = temp.ToString(format) + " kWh";
+                }
+
+                if ((string)data[i]["paraName"] == "CALC.NXXNY:SSZFH")
+                {
+                    float temp = float.Parse(data[i]["value"].ToString());
+                    AllPower.text = temp.ToString(format) + " 万kW";
+                }
+
                 // if ((string)data[i]["paraName"] == "WDGF.WDGF:NBQ01CE40002")
                 // {0.0005
                 //     float temp = float.Parse(data[i]["value"].ToString());
                 //     InternetPower.text = temp.ToString(format) + " kwh";
                 // }
-                if ((string)data[i]["paraName"] == "WDGF.WDGF:NBQ12CE40003")
-                {
-                    float temp = float.Parse(data[i]["value"].ToString());
-                    InternetPower.text = (temp * 0.0005f).ToString(format) + " kWh";
-                    DayPower.text = temp.ToString(format) + " kWh";
-                }
+
+                // if ((string)data[i]["paraName"] == "WDGF.WDGF:NBQ12CE40003")
+                // {
+                //     float temp = float.Parse(data[i]["value"].ToString());
+                //     DayPower.text = (temp * 0.0005f).ToString(format) + " kWh";
+                //     DayPower.text = temp.ToString(format) + " kWh";
+                // }
             }
         }
     }
 
     void RepeateRequest()
     {
+        Debug.Log("-----------开始调用");
         StartCoroutine(GetRequest());
     }
     //调用windows弹窗

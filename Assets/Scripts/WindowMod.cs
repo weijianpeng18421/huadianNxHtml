@@ -67,6 +67,7 @@ public class WindowMod : MonoBehaviour
 
     private void Awake()
     {
+        Screen.SetResolution(600, 350, false);
         //btnSmallScreen.onClick.AddListener(OnFullScreenClick);
         this.Xscreen = (int)WindowMod.GetSystemMetrics(0);
         this.Yscreen = (int)WindowMod.GetSystemMetrics(1);
